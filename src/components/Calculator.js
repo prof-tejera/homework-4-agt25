@@ -20,18 +20,15 @@ const Styles = {
 
 class Calculator extends Component {
     state = {
-        first: 0,
+        first: "",
         operator: null,
-        second: 0,
+        second: "",
         current: 0,
         negative: false
     };
 
     handleNumberClick = (number) => {
-        // let formattedNumber = parseFloat(number).toLocaleString()
-        // if (formattedNumber.length > 5) {
-        //   formattedNumber = parseFloat(formattedNumber).toExponential(12 - 4);
-        // }
+        
 
         if (!this.state.operator) {
             this.setState({
@@ -51,37 +48,44 @@ class Calculator extends Component {
   
     handleOperatorClick = (operator) => {
 
+
         if (operator === "=") {
             const first = parseFloat(this.state.first);
             const second = parseFloat(this.state.second);
+            
 
             if (this.state.operator === "+") {
                 this.setState({
                     operator: null,
                     first: first + second,
-                    second: null
+                    second: null,
+                    current: 0
                 });
             } else if (this.state.operator === "/") {
                 this.setState({
                     operator: null,
                     first: first / second,
-                    second: null
+                    second: null,
+                    current: 0
+                
                 });
             } else if (this.state.operator === "-") {
                 this.setState({
                     operator: null,
                     first: first - second,
-                    second: null
+                    second: null,
+                    current: 0, 
                 });
             } else if (this.state.operator === "x") {
                 this.setState({
                     operator: null,
                     first: first * second,
-                    second: null
+                    second: null,
+                    current: 0,
                 });
             }
         } else if (operator === "AC") {
-            this.setState({first: 0, second: 0, operator: null, current: 0});
+            this.setState({first: "", second: "", operator: null, current: 0});
         } else if (operator === ".") {
             this.setState({
                 first: this.state.current === 0
@@ -94,15 +98,29 @@ class Calculator extends Component {
             });
 
         } else if (operator === "+-") {
-            this.setState({
+            if(!this.state.first || !this.state.second ) {
+              this.setState({
+                first: this.state.current === 0
+                ? '-' 
+                : this.state.first,
+                second: this.state.current === 1
+                    ? '-' 
+                    : this.state.second,
+                operator: this.state.operator
+              })
+            } else {
+              this.setState({
+                
                 first: this.state.current === 0
                     ? -1 * parseFloat(this.state.first)
                     : this.state.first,
                 second: this.state.current === 1
                     ? -1 * parseFloat(this.state.second)
-                    : this.state.first,
+                    : this.state.second,
                 operator: this.state.operator
             })
+            }
+            
         } else if (operator === "%") {
             this.setState({
                 first: this.state.current === 0
@@ -124,6 +142,11 @@ class Calculator extends Component {
     };
 
     getScreenValue = () => this.state.second || this.state.first;
+      
+
+      
+    
+  
 
     render() {
         return (
