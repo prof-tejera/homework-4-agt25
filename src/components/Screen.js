@@ -2,11 +2,16 @@ import { Component } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  border: 1px solid black;
-  width: 300px;
-  height: 70px;
+  height: 125px;
   text-align: right;
   margin-bottom: 10px;
+  line-height: 130px;
+  font-size: 72px;
+  color: #E1613F;
+  font-weight: 100;
+  padding-right: 20px;
+  padding-top: 10px;
+  
 `;
 
 class Screen extends Component {
