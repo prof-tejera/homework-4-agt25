@@ -5,15 +5,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url('./images/background.png'); */
+  background-color: #EFEBE7 !important;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-.hey {
-  background-color: #4eca92;
-  background-color: #f37654;
+::-webkit-scrollbar-track {
+  background: #161616; 
+}
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: rgb(46, 45, 45); 
+  
 }

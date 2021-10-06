@@ -18,6 +18,7 @@ const Container = styled.div`
     align-items: center;
     color: white;
     font-weight: 600;
+    
   
     
 `;
@@ -39,6 +40,7 @@ Operator.propTypes = {
   color: PropTypes.string,
   backgroundColor: PropTypes.string,
   fontWeight: PropTypes.string, 
+
 }
 
 

@@ -7,12 +7,14 @@ const Container = styled.div`
   text-align: right;
   margin-bottom: 10px;
   line-height: 130px;
-  font-size: 72px;
+  font-size: 66px;
   color: #f58a6c;
   font-weight: 100;
-  padding-right: 20px;
+  padding-right: 25px;
   padding-top: 10px;
   font-weight: 200;
+  overflow-x: scroll;
+  overflow-y: hidden;
   
 `;
 
