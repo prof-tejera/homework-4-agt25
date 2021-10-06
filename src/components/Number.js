@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Container = styled.span `
@@ -30,6 +31,16 @@ class Number extends Component {
         );
     }
 }
+
+Number.propTypes = {
+  value: PropTypes.number.isRequired,
+  onClick: PropTypes.func,
+  width: PropTypes.string,
+  borderRadius: PropTypes.string,
+  textAlign: PropTypes.string, 
+  paddingLeft: PropTypes.string
+}
+
 
 Number.defaultProps = {
     width: '80px',

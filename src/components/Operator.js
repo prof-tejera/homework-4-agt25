@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -31,6 +32,15 @@ class Operator extends Component {
     );
   }
 }
+
+Operator.propTypes = {
+  value: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  color: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  fontWeight: PropTypes.string, 
+}
+
 
 Operator.defaultProps = {
   background: '#35d18b',

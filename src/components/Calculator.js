@@ -3,8 +3,6 @@ import { Component } from "react";
 import Number from "./Number";
 import Operator from "./Operator";
 import Screen from "./Screen";
-
-import styled from 'styled-components';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Styles = {
@@ -14,7 +12,9 @@ const Styles = {
     borderRadius: '22px',
     backgroundColor: '#161616',
     paddingLeft: '25px',
-    paddingRight: '30px'
+    paddingRight: '30px',
+    WebkitBoxShadow: '1px 1px 15px 0px rgba(245,138,108,0.25)', 
+    boxShadow: '1px 1px 15px 0px rgba(245,138,108,0.25)',
     
   },
 }
@@ -23,21 +23,25 @@ class Calculator extends Component {
   state = {
     first: null,
     operator: null,
-    second: null,
+    second: 0,
+    current: 0, 
   };
 
   handleNumberClick = (number) => {
     if (!this.state.operator) {
       this.setState({ first: `${this.state.first || ""}${number}` });
+      this.setState({current: 0 })
     } else {
       this.setState({ second: `${this.state.second || ""}${number}` });
+      this.setState({current: 1 })
     }
   };
 
   handleOperatorClick = (operator) => {
+    
     if (operator === "=") {
-      const first = parseInt(this.state.first);
-      const second = parseInt(this.state.second);
+      const first = parseFloat(this.state.first);
+      const second = parseFloat(this.state.second);
 
       if (this.state.operator === "+") {
         this.setState({ operator: null, first: first + second, second: null });
@@ -50,6 +54,13 @@ class Calculator extends Component {
       }
     } else if (operator === "AC") {
       this.setState({ first: null, second: null, operator: null });
+    } else if (operator === ".") {
+      this.setState({ 
+                      first: this.state.current === 0 ? this.state.first + "." : this.state.first, 
+                      second: this.state.current === 1 ? this.state.second + "." : this.state.second,
+                      operator: this.state.operator, 
+    });
+
     } else {
       this.setState({ operator });
     }
@@ -72,17 +83,17 @@ class Calculator extends Component {
           <Row>
               <Col xs={3}>
                 <Operator value="AC" onClick={this.handleOperatorClick} 
-                          background="#B4B4B4" color="black"
+                          background="#B4B4B4" color="#262626"
                           weight="400"/>
               </Col>
               <Col xs={3}>
                 <Operator value="+-" onClick={this.handleOperatorClick} 
-                          background="#B4B4B4" color="black"
+                          background="#B4B4B4" color="#242424"
                           weight="400"/>
               </Col>
               <Col xs={3}>
                 <Operator value="%" onClick={this.handleOperatorClick} 
-                          background="#B4B4B4" color="black"
+                          background="#B4B4B4" color="#242424"
                           weight="400"/>
               </Col>
               <Col xs={3}>
