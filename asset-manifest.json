@@ -1,20 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.f07be738.chunk.css",
-    "main.js": "/static/js/main.a7124cc2.chunk.js",
-    "main.js.map": "/static/js/main.a7124cc2.chunk.js.map",
+    "main.css": "/static/css/main.9101a377.chunk.css",
+    "main.js": "/static/js/main.5ba1b995.chunk.js",
+    "main.js.map": "/static/js/main.5ba1b995.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.54c00196.js",
     "runtime-main.js.map": "/static/js/runtime-main.54c00196.js.map",
-    "static/js/2.dffb0576.chunk.js": "/static/js/2.dffb0576.chunk.js",
-    "static/js/2.dffb0576.chunk.js.map": "/static/js/2.dffb0576.chunk.js.map",
+    "static/css/2.ebe04f07.chunk.css": "/static/css/2.ebe04f07.chunk.css",
+    "static/js/2.6178a27b.chunk.js": "/static/js/2.6178a27b.chunk.js",
+    "static/js/2.6178a27b.chunk.js.map": "/static/js/2.6178a27b.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.f07be738.chunk.css.map": "/static/css/main.f07be738.chunk.css.map",
-    "static/js/2.dffb0576.chunk.js.LICENSE.txt": "/static/js/2.dffb0576.chunk.js.LICENSE.txt"
+    "static/css/2.ebe04f07.chunk.css.map": "/static/css/2.ebe04f07.chunk.css.map",
+    "static/css/main.9101a377.chunk.css.map": "/static/css/main.9101a377.chunk.css.map",
+    "static/js/2.6178a27b.chunk.js.LICENSE.txt": "/static/js/2.6178a27b.chunk.js.LICENSE.txt",
+    "static/media/robinhood-logo.e4d0e0db.png": "/static/media/robinhood-logo.e4d0e0db.png"
   },
   "entrypoints": [
     "static/js/runtime-main.54c00196.js",
-    "static/js/2.dffb0576.chunk.js",
-    "static/css/main.f07be738.chunk.css",
-    "static/js/main.a7124cc2.chunk.js"
+    "static/css/2.ebe04f07.chunk.css",
+    "static/js/2.6178a27b.chunk.js",
+    "static/css/main.9101a377.chunk.css",
+    "static/js/main.5ba1b995.chunk.js"
   ]
 }
