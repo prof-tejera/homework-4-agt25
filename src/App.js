@@ -15,7 +15,7 @@ const Header = styled.p`
 const SubHeader = styled.p`
   text-align: center; 
   font-size: 24px;
-  color: #CC4E2E;
+  color: #E1582D;
   padding-bottom: 10px;
   font-weight: 500;
   

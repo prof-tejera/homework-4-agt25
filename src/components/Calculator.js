@@ -134,10 +134,10 @@ class Calculator extends Component {
             this.setState({
                 first: this.state.current === 0
                     ? parseFloat(this.state.first) / 100
-                    : this.state.first / 100,
+                    : this.state.first,
                 second: this.state.current === 1
                     ? parseFloat(this.state.second) / 100
-                    : this.state.second / 100,
+                    : this.state.second,
                 operator: this.state.operator
             })
 
@@ -234,7 +234,6 @@ class Calculator extends Component {
               <Operator value="+" onClick={this.handleOperatorClick}/>
             </Col>
           </Row>
-
 
           {/* Row 6: Number 0, '.' and the '=' operator */} 
           <Row> 
