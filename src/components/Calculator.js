@@ -15,6 +15,8 @@ const Styles = {
         paddingRight: '35px',
         WebkitBoxShadow: '1px 1px 15px 0px rgba(245,138,108,0.25)',
         boxShadow: '1px 1px 15px 0px rgba(245,138,108,0.25)'
+        
+
     }
 }
 
@@ -246,7 +248,8 @@ class Calculator extends Component {
         </Col>
     </Row>
 
-</Container> < />
+</Container> 
+        </>
         );
     }
 }

@@ -7,7 +7,8 @@ import logo from './images/robinhood-logo.png';
 const Header = styled.p`
   text-align: center; 
   font-weight: 700;
-  font-size: 36px;
+  font-size: 38px;
+  font-family: Roboto;
 
 `;
 
@@ -27,9 +28,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header>IV: Calculator</Header>
+      <Header>React Calculator</Header>
      
-        <SubHeader>Palette inspired by <img src={logo} width="150px" alt="logo"></img> 
+        <SubHeader>Palette inspired by <img src={logo} width="150px" id="logo" alt="logo"></img> 
        
         </SubHeader>
       <Calculator />

@@ -8,6 +8,10 @@ body {
   background-color: #EFEBE7 !important;
 }
 
+#logo {
+  position: relative;
+  top: -2.5px;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

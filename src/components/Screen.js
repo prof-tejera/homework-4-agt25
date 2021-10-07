@@ -11,10 +11,12 @@ const Container = styled.div`
   color: #f58a6c;
   font-weight: 100;
   padding-right: 25px;
+  padding-left: 25px;
   padding-top: 10px;
   font-weight: 200;
   overflow-x: scroll;
   overflow-y: hidden;
+  
   
 `;
 
