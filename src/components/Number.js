@@ -2,6 +2,7 @@ import {Component} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+
 const Container = styled.span `
   display: block;
   padding: 6px;
@@ -48,4 +49,5 @@ Number.defaultProps = {
     align: 'center',
     paddingLeft: '6px',
 }
+
 export default Number;

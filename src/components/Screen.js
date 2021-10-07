@@ -2,6 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+
 const Container = styled.div`
   height: 125px;
   text-align: right;
@@ -17,7 +18,6 @@ const Container = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
   
-  
 `;
 
 class Screen extends Component {
@@ -31,7 +31,6 @@ Screen.propTypes = {
     PropTypes.string,
     PropTypes.number
   ]),
-  
 }
 
 
