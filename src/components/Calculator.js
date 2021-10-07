@@ -24,11 +24,9 @@ class Calculator extends Component {
         operator: null,
         second: "",
         current: 0,
-        negative: false
     };
 
     handleNumberClick = (number) => {
-        
 
         if (!this.state.operator) {
             this.setState({
@@ -42,17 +40,13 @@ class Calculator extends Component {
             this.setState({current: 1})
         }
 
-        
     };
 
-  
     handleOperatorClick = (operator) => {
-
 
         if (operator === "=") {
             const first = parseFloat(this.state.first);
             const second = parseFloat(this.state.second);
-            
 
             if (this.state.operator === "+") {
                 this.setState({
@@ -67,25 +61,26 @@ class Calculator extends Component {
                     first: first / second,
                     second: null,
                     current: 0
-                
+
                 });
             } else if (this.state.operator === "-") {
                 this.setState({
                     operator: null,
                     first: first - second,
                     second: null,
-                    current: 0, 
+                    current: 0
                 });
             } else if (this.state.operator === "x") {
                 this.setState({
                     operator: null,
                     first: first * second,
                     second: null,
-                    current: 0,
+                    current: 0
                 });
             }
         } else if (operator === "AC") {
             this.setState({first: "", second: "", operator: null, current: 0});
+
         } else if (operator === ".") {
             this.setState({
                 first: this.state.current === 0
@@ -98,29 +93,37 @@ class Calculator extends Component {
             });
 
         } else if (operator === "+-") {
-            if(!this.state.first || !this.state.second ) {
-              this.setState({
-                first: this.state.current === 0
-                ? '-' 
-                : this.state.first,
-                second: this.state.current === 1
-                    ? '-' 
-                    : this.state.second,
-                operator: this.state.operator
+            // If the first number gets converted into a negative
+            if (this.state.current === 0) {
+              if (!this.state.first) {
+                this.setState({
+                  first: '-',
+                  operator: this.state.operator
               })
+              } else {
+                this.setState({
+                  first: -1 * parseFloat(this.state.first),
+                  operator: this.state.operator
+              })
+
+             
+            } 
             } else {
-              this.setState({
-                
-                first: this.state.current === 0
-                    ? -1 * parseFloat(this.state.first)
-                    : this.state.first,
-                second: this.state.current === 1
-                    ? -1 * parseFloat(this.state.second)
-                    : this.state.second,
-                operator: this.state.operator
-            })
+              if (!this.state.second) {
+                this.setState({
+                  second: '-',
+                  operator: this.state.operator
+              })
+              } else {
+                this.setState({
+                  second: -1 * parseFloat(this.state.second),
+                  operator: this.state.operator
+              })
             }
             
+               
+            }
+
         } else if (operator === "%") {
             this.setState({
                 first: this.state.current === 0
@@ -142,115 +145,108 @@ class Calculator extends Component {
     };
 
     getScreenValue = () => this.state.second || this.state.first;
-      
-
-      
-    
-  
 
     render() {
-        return (
-            <> < Container style = {
-                Styles.wrapper
-            } > {/* Screen row */
-            } < Row > <Screen value={this.getScreenValue()}/>
-        </Row>
+        return (<> < Container style = {
+            Styles.wrapper
+        } > {/* Screen row */
+        } < Row > <Screen value={this.getScreenValue()}/>
+    </Row>
 
-                {/* Row 1: Top operators */
-            } < Row > <Col xs={3}>
-                <Operator
-                    value="AC"
-                    onClick={this.handleOperatorClick}
-                    background="#B4B4B4"
-                    color="#262626"
-                    weight="400"/>
-            </Col>
-            <Col xs={3}>
-                <Operator
-                    value="+-"
-                    onClick={this.handleOperatorClick}
-                    background="#B4B4B4"
-                    color="#242424"
-                    weight="400"/>
-            </Col>
-            <Col xs={3}>
-                <Operator
-                    value="%"
-                    onClick={this.handleOperatorClick}
-                    background="#B4B4B4"
-                    color="#242424"
-                    weight="400"/>
-            </Col>
-            <Col xs={3}>
-                <Operator value="/" onClick={this.handleOperatorClick}/>
-            </Col>
-        </Row>
+            {/* Row 1: Top operators */
+        } < Row > <Col xs={3}>
+            <Operator
+                value="AC"
+                onClick={this.handleOperatorClick}
+                background="#B4B4B4"
+                color="#262626"
+                weight="400"/>
+        </Col>
+        <Col xs={3}>
+            <Operator
+                value="+-"
+                onClick={this.handleOperatorClick}
+                background="#B4B4B4"
+                color="#242424"
+                weight="400"/>
+        </Col>
+        <Col xs={3}>
+            <Operator
+                value="%"
+                onClick={this.handleOperatorClick}
+                background="#B4B4B4"
+                color="#242424"
+                weight="400"/>
+        </Col>
+        <Col xs={3}>
+            <Operator value="/" onClick={this.handleOperatorClick}/>
+        </Col>
+    </Row>
 
-                {/* Numbers 7, 8, 9 and X operator */
-            } < Row > <Col xs={3}>
-                <Number value={7} onClick={this.handleNumberClick}/>
-            </Col>
-            <Col xs={3}>
-                <Number value={8} onClick={this.handleNumberClick}/>
-            </Col>
-            <Col xs={3}>
-                <Number value={9} onClick={this.handleNumberClick}/>
-            </Col>
-            <Col xs={3}>
-                <Operator value="x" onClick={this.handleOperatorClick}/>
-            </Col>
-        </Row>
+            {/* Numbers 7, 8, 9 and X operator */
+        } < Row > <Col xs={3}>
+            <Number value={7} onClick={this.handleNumberClick}/>
+        </Col>
+        <Col xs={3}>
+            <Number value={8} onClick={this.handleNumberClick}/>
+        </Col>
+        <Col xs={3}>
+            <Number value={9} onClick={this.handleNumberClick}/>
+        </Col>
+        <Col xs={3}>
+            <Operator value="x" onClick={this.handleOperatorClick}/>
+        </Col>
+    </Row>
 
-                {/* Numbers 4, 5, 6 and —— operator */
-            } < Row > <Col xs={3}>
-                <Number value={4} onClick={this.handleNumberClick}/>
-            </Col>
-            <Col xs={3}>
-                <Number value={5} onClick={this.handleNumberClick}/>
-            </Col>
-            <Col xs={3}>
-                <Number value={6} onClick={this.handleNumberClick}/>
-            </Col>
-            <Col xs={3}>
-                <Operator value="-" onClick={this.handleOperatorClick}/>
-            </Col>
-        </Row>
+            {/* Numbers 4, 5, 6 and —— operator */
+        } < Row > <Col xs={3}>
+            <Number value={4} onClick={this.handleNumberClick}/>
+        </Col>
+        <Col xs={3}>
+            <Number value={5} onClick={this.handleNumberClick}/>
+        </Col>
+        <Col xs={3}>
+            <Number value={6} onClick={this.handleNumberClick}/>
+        </Col>
+        <Col xs={3}>
+            <Operator value="-" onClick={this.handleOperatorClick}/>
+        </Col>
+    </Row>
 
-                {/* Numbers 1, 2, 3 and + operator */
-            } < Row > <Col xs={3}>
-                <Number value={1} onClick={this.handleNumberClick}/>
-            </Col>
-            <Col xs={3}>
-                <Number value={2} onClick={this.handleNumberClick}/>
-            </Col>
-            <Col xs={3}>
-                <Number value={3} onClick={this.handleNumberClick}/>
-            </Col>
-            <Col xs={3}>
-                <Operator value="+" onClick={this.handleOperatorClick}/>
-            </Col>
-        </Row>
+            {/* Numbers 1, 2, 3 and + operator */
+        } < Row > <Col xs={3}>
+            <Number value={1} onClick={this.handleNumberClick}/>
+        </Col>
+        <Col xs={3}>
+            <Number value={2} onClick={this.handleNumberClick}/>
+        </Col>
+        <Col xs={3}>
+            <Number value={3} onClick={this.handleNumberClick}/>
+        </Col>
+        <Col xs={3}>
+            <Operator value="+" onClick={this.handleOperatorClick}/>
+        </Col>
+    </Row>
 
-                {/* Number 0, . and = operator */
-            } < Row > <Col xs={6}>
-                <Number
-                    value={0}
-                    onClick={this.handleNumberClick}
-                    width="165px"
-                    radius="36px"
-                    align="left"
-                    paddingLeft="22px"/>
-            </Col>
-            <Col xs={3}>
-                <Operator value="." onClick={this.handleOperatorClick} background="#323232"/>
-            </Col>
-            <Col xs={3}>
-                <Operator value="=" onClick={this.handleOperatorClick}/>
-            </Col>
-        </Row>
+            {/* Number 0, . and = operator */
+        } < Row > <Col xs={6}>
+            <Number
+                value={0}
+                onClick={this.handleNumberClick}
+                width="165px"
+                radius="36px"
+                align="left"
+                paddingLeft="22px"/>
+        </Col>
+        <Col xs={3}>
+            <Operator value="." onClick={this.handleOperatorClick} background="#323232"/>
+        </Col>
+        <Col xs={3}>
+            <Operator value="=" onClick={this.handleOperatorClick}/>
+        </Col>
+    </Row>
 
-    </Container>
-</>
+</Container> < />
         );
     }
 }
